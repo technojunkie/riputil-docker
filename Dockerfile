@@ -8,8 +8,8 @@ RUN apt-get -y update && apt-get install -y \
     libdvdread4 \
     libudev-dev \
     openssh-server \
-    software-properties-common && \
-    mkdir /home/makemkv && \
+    software-properties-common
+RUN mkdir /home/makemkv && \
     cd /home/makemkv && \
     wget http://www.makemkv.com/download/makemkv-oss-1.9.10.tar.gz && \
     wget http://www.makemkv.com/download/makemkv-bin-1.9.10.tar.gz && \
