@@ -13,10 +13,10 @@ RUN mkdir /home/makemkv; \
     cd /home/makemkv; \
     wget http://www.makemkv.com/download/makemkv-oss-1.10.2.tar.gz; \
     wget http://www.makemkv.com/download/makemkv-bin-1.10.2.tar.gz
-RUN tar -xvzf makemkv-oss-1.10.2.tar.gz; \
-    tar -xvzf makemkv-bin-1.10.2.tar.gz
-RUN cd /home/makemkv/makemkv-oss-1.9.10 && make install; \
-    cd /home/makemkv/makemkv-bin-1.9.10 && make install; \
+RUN tar -xzf makemkv-oss-1.10.2.tar.gz; \
+    tar -xzf makemkv-bin-1.10.2.tar.gz
+RUN cd /home/makemkv/makemkv-oss-1.10.2 && make install; \
+    cd /home/makemkv/makemkv-bin-1.10.2 && make install; \
     rm -r /home/makemkv
 RUN groupadd -r ripbot && useradd -r -g ripbot ripbot; \
     apt-get -y remove build-essential && apt-get -y autoremove
