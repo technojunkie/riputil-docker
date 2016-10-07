@@ -9,8 +9,8 @@ RUN apt-get -y update && apt-get install -y \
     libudev-dev \
     openssh-server \
     python-software-properties \
-    software-properties-common && \
-    /usr/bin/add-apt-repository -y ppa:stebbins/handbrake-releases && \
+    software-properties-common
+RUN /usr/bin/add-apt-repository -y ppa:stebbins/handbrake-releases && \
     mkdir /home/makemkv && \
     cd /home/makemkv && \
     wget http://www.makemkv.com/download/makemkv-oss-1.9.10.tar.gz && \
