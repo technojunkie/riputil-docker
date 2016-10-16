@@ -12,8 +12,8 @@ RUN apt-get -y update && apt-get install -y \
 RUN mkdir /home/makemkv; \
     cd /home/makemkv
 
-ADD http://www.makemkv.com/download/makemkv-bin-1.10.2.tar.gz
-ADD http://www.makemkv.com/download/makemkv-oss-1.10.2.tar.gz
+ADD http://www.makemkv.com/download/makemkv-bin-1.10.2.tar.gz /home/makemkv
+ADD http://www.makemkv.com/download/makemkv-oss-1.10.2.tar.gz /home/makemkv
 
 RUN cd /home/makemkv/makemkv-oss-1.10.2 && make install; \
     cd /home/makemkv/makemkv-bin-1.10.2 && make install; \
