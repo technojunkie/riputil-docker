@@ -22,3 +22,4 @@ RUN groupadd -r ripbot && useradd -r -g ripbot ripbot; \
     apt-get -y remove build-essential && apt-get -y autoremove
 
 EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
