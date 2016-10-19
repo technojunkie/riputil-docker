@@ -24,7 +24,7 @@ ADD http://www.makemkv.com/download/makemkv-oss-1.10.2.tar.gz /home/makemkv
 
 RUN cd /home/makemkv/makemkv-oss-1.10.2 && make install; \
     cd /home/makemkv/makemkv-bin-1.10.2 && make install; \
-    rm -r /home/makemkv
+    
 RUN groupadd -r ripbot && useradd -r -g ripbot ripbot; \
     apt-get -y remove build-essential && apt-get -y autoremove
 
