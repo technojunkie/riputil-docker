@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 MAINTAINER technojunkie
 
+ENV VERSION 1.10.2
+
 RUN apt-get -y update && apt-get install -y \
     build-essential \
     handbrake-cli \
@@ -19,12 +21,21 @@ RUN mkdir /home/makemkv; \
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-ADD http://www.makemkv.com/download/makemkv-bin-1.10.2.tar.gz /home/makemkv
-ADD http://www.makemkv.com/download/makemkv-oss-1.10.2.tar.gz /home/makemkv
+ADD http://www.makemkv.com/download/makemkv-bin-$VERSION.tar.gz /tmp/makemkv
+ADD http://www.makemkv.com/download/makemkv-oss-$VERSION.tar.gz /tmp/makemkv
 
-RUN cd /home/makemkv/makemkv-oss-1.10.2 && make install; \
-    cd /home/makemkv/makemkv-bin-1.10.2 && make install; \
-    
+RUN tar xzf /tmp/makemkv/makemkv-oss-$VERSION.tar.gz; \
+    cd /tmp/makemkv/makemkv-oss-$VERSION; \
+    ./configure; \
+    make; \
+    make install; \
+    tar xzf /tmp/makemkv/makemkv-bin-$VERSION.tar.gz; \
+    cd /tmp/makemkv/makemkv-bin-$VERSION; \
+    yes yes | make; \
+    make install; \
+    cd ~; \
+    rm -rf /tmp/makemkv
+
 RUN groupadd -r ripbot && useradd -r -g ripbot ripbot; \
     apt-get -y remove build-essential && apt-get -y autoremove
 
