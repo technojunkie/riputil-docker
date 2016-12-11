@@ -31,11 +31,11 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 ADD http://www.makemkv.com/download/makemkv-bin-$VERSION.tar.gz /tmp/makemkv
 ADD http://www.makemkv.com/download/makemkv-oss-$VERSION.tar.gz /tmp/makemkv
 
-RUN tar xzf /tmp/makemkv/makemkv-oss-$VERSION.tar.gz; \
-    cd /tmp/makemkv/makemkv-oss-$VERSION; \
-    ./configure --disable-gui; \
-    make; \
-    make install
+RUN tar xzf /tmp/makemkv/makemkv-oss-$VERSION.tar.gz
+RUN cd /tmp/makemkv/makemkv-oss-$VERSION
+RUN ./configure --disable-gui
+RUN make
+RUN make install
 
 RUN tar xzf /tmp/makemkv/makemkv-bin-$VERSION.tar.gz
 RUN cd /tmp/makemkv/makemkv-bin-$VERSION
