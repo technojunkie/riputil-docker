@@ -37,10 +37,10 @@ RUN tar xzf /tmp/makemkv/makemkv-oss-$VERSION.tar.gz; \
     make; \
     make install
 
-RUN tar xzf /tmp/makemkv/makemkv-bin-$VERSION.tar.gz; \
-    cd /tmp/makemkv/makemkv-bin-$VERSION; \
-    echo "accepted" > /tmp/makemkv/makemkv-bin-$VERSION/tmp/eula_accepted \
-    make install
+RUN tar xzf /tmp/makemkv/makemkv-bin-$VERSION.tar.gz
+RUN cd /tmp/makemkv/makemkv-bin-$VERSION
+RUN echo "accepted" > /tmp/makemkv/makemkv-bin-$VERSION/tmp/eula_accepted
+RUN make install
 #    cd ~; \
 #    rm -rf /tmp/makemkv
 
