@@ -35,8 +35,9 @@ RUN tar xzf /tmp/makemkv/makemkv-oss-$VERSION.tar.gz; \
     cd /tmp/makemkv/makemkv-oss-$VERSION; \
     ./configure --disable-gui; \
     make; \
-    make install; \
-    tar xzf /tmp/makemkv/makemkv-bin-$VERSION.tar.gz; \
+    make install
+
+RUN tar xzf /tmp/makemkv/makemkv-bin-$VERSION.tar.gz; \
     cd /tmp/makemkv/makemkv-bin-$VERSION; \
     echo "accepted" > /tmp/makemkv/makemkv-bin-$VERSION/tmp/eula_accepted \
     make install
