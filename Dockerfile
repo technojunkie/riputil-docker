@@ -33,8 +33,8 @@ ADD http://www.makemkv.com/download/makemkv-oss-$VERSION.tar.gz /tmp/makemkv/mak
 
 RUN tar xzf /tmp/makemkv/makemkv-oss-$VERSION.tar.gz
 # rm /tmp/makemkv/makemkv-oss-$VERSION.tar.gz
-RUN ./makemkv-oss-$VERSION/configure --disable-gui
 RUN cd ./makemkv-oss-$VERSION
+RUN ./configure --disable-gui
 RUN make && make install
 # RUN cd makemkv-oss-$VERSION
 # RUN ./configure --disable-gui
