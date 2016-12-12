@@ -38,7 +38,8 @@ RUN tar xzf makemkv-oss-$VERSION.tar.gz && \
 
 RUN tar xzf /tmp/makemkv/makemkv-bin-$VERSION.tar.gz && \
     cd makemkv-bin-$VERSION && \
-    echo "accepted" > ./tmp/eula_accepted && \
+    mkdir tmp && \
+    echo "accepted" > tmp/eula_accepted && \
     make install
 
 # rm -rf /makemkv-oss-$VERSION
