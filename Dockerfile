@@ -18,8 +18,7 @@ RUN apt-get -y update && apt-get install -y \
     pkg-config \
     software-properties-common
 
-RUN mkdir /home/makemkv; \
-    mkdir /var/run/sshd; \
+RUN mkdir /var/run/sshd; \
     echo 'root:screencast' | chpasswd; \
     sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config; \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd; \
@@ -28,24 +27,22 @@ RUN mkdir /home/makemkv; \
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-ADD http://www.makemkv.com/download/makemkv-bin-$VERSION.tar.gz /tmp/makemkv/makemkv-bin-$VERSION.tar.gz
-ADD http://www.makemkv.com/download/makemkv-oss-$VERSION.tar.gz /tmp/makemkv/makemkv-oss-$VERSION.tar.gz
+WORKDIR /tmp
+ADD http://www.makemkv.com/download/makemkv-bin-$VERSION.tar.gz makemkv-bin-$VERSION.tar.gz
+ADD http://www.makemkv.com/download/makemkv-oss-$VERSION.tar.gz makemkv-oss-$VERSION.tar.gz
 
-RUN tar xzf /tmp/makemkv/makemkv-oss-$VERSION.tar.gz
-# rm /tmp/makemkv/makemkv-oss-$VERSION.tar.gz
-RUN cd makemkv-oss-$VERSION && \
-./configure --disable-gui && \
-make && \
-make install
+RUN tar xzf makemkv-oss-$VERSION.tar.gz && \
+    cd makemkv-oss-$VERSION && \
+    ./configure --disable-gui && \
+    make && \
+    make install
 
-# RUN cd makemkv-oss-$VERSION
-# RUN ./configure --disable-gui
+RUN tar xzf /tmp/makemkv/makemkv-bin-$VERSION.tar.gz && \
+    cd /tmp/makemkv/makemkv-bin-$VERSION && \
+    echo "accepted" > ./makemkv-bin-$VERSION/tmp/eula_accepted && \
+    ./makemkv-bin-$VERSION/make install && \
+
 # rm -rf /makemkv-oss-$VERSION
-
-RUN tar xzf /tmp/makemkv/makemkv-bin-$VERSION.tar.gz
-RUN cd /tmp/makemkv/makemkv-bin-$VERSION
-RUN echo "accepted" > ./makemkv-bin-$VERSION/tmp/eula_accepted
-RUN ./makemkv-bin-$VERSION/make install
 #    cd ~; \
 #    rm -rf /tmp/makemkv
 
