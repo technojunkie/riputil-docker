@@ -25,6 +25,8 @@ RUN mkdir /var/run/sshd; \
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
+ADD start.sh /usr/local/bin
+RUN chmod +x /usr/local/bin
 
 WORKDIR /tmp
 ADD http://www.makemkv.com/download/makemkv-bin-$VERSION.tar.gz makemkv-bin-$VERSION.tar.gz
@@ -50,4 +52,4 @@ RUN groupadd -r ripbot && useradd -r -g ripbot ripbot
 #    apt-get -y remove build-essential && apt-get -y autoremove
 
 EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["start.sh"]
