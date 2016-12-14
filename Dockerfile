@@ -45,7 +45,7 @@ RUN mkdir /var/run/sshd; \
     echo "export VISIBLE=now" >> /etc/profile; \
     chmod +x /usr/local/bin/start.sh
 
-RUN groupadd -r ripbot && useradd -r -g ripbot ripbot; \
+RUN groupadd -r ripbot && useradd -r -g ripbot ripbot
 
 
 EXPOSE 22
