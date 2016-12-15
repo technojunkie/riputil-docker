@@ -10,7 +10,7 @@ fi
 if [ ! -e /root/.makemkv ]; then
   mkdir /root/.makemkv
 fi
-echo "app_Key =\"$LICENSE\"" > /root/.makemkv/settings.conf
+echo "app_Key = \"$LICENSE\"" > /root/.makemkv/settings.conf
 
 #Grab scripts from work dir
 if [ -e /work/scripts ]; then
