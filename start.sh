@@ -10,8 +10,8 @@ fi
 if [ ! -e /root/.makemkv ]; then
   mkdir /root/.makemkv
 fi
-echo "app_Key = \"$LICENSE\"" > /root/.MakeMKV/settings.conf
-echo "dvd_MinimumTitleLength = \"3600\"" >> /root/.MakeMKV/settings.conf
+echo "app_Key = \"$LICENSE\"" > ~/.MakeMKV/settings.conf
+echo "dvd_MinimumTitleLength = \"3600\"" >> ~/.MakeMKV/settings.conf
 
 #Grab scripts from work dir
 if [ -e /work/scripts ]; then

@@ -21,6 +21,7 @@ RUN apt-get -y update && apt-get install -y \
     libudev-dev \
     openssh-server \
     pkg-config \
+    screen \
     software-properties-common; \
     tar xzf makemkv-oss-$VERSION.tar.gz; \
     cd makemkv-oss-$VERSION; \
