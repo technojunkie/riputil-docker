@@ -35,7 +35,7 @@ RUN apt-get -y update && apt-get install -y \
     echo "accepted" > tmp/eula_accepted; \
     make install; \
     cd ..; \
-    rm -rf /makemkv-*; \
+    rm -rf makemkv-*; \
     apt-get -y remove build-essential && apt-get -y autoremove
 
 ENV NOTVISIBLE "in users profile"
