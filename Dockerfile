@@ -20,6 +20,7 @@ RUN apt-get -y update && apt-get install -y \
     libssl-dev \
     libudev-dev \
     openssh-server \
+    perl \
     pkg-config \
     screen \
     software-properties-common; \
