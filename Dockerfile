@@ -14,6 +14,7 @@ RUN apt-get -y update && apt-get install -y \
     less \
     libavcodec-dev \
     libc6-dev \
+    libdvd-pkg \
     libdvdnav4 \
     libdvdread4 \
     libexpat1-dev \
