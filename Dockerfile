@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER technojunkie
 
-ENV VERSION 1.10.4
+ENV VERSION 1.10.6
 
 WORKDIR /tmp
 ADD http://www.makemkv.com/download/makemkv-bin-$VERSION.tar.gz makemkv-bin-$VERSION.tar.gz
